@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {ChangeDetectorRef, Component, ViewRef} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-change-detection-app';
+
+  textToChange: string;
+
+
+  constructor(private changeDetectorRef: ChangeDetectorRef) {
+    console.log(this.changeDetectorRef);
+  }
+
+
+  triggerChange() {
+    this.textToChange = Math.random().toString();
+    console.log(this.changeDetectorRef);
+  }
+
 }
